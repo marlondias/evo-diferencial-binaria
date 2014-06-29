@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1396177473 source:/home/marlon/Documentos/Evolucao Diferencial Binaria/Fitness.c
+	<sys/time.h>
+	<stdlib.h>
+	<inttypes.h>
+	<string.h>
+	"otimizacoes.h"
+	<stdio.h>
+
+1396176855 source:/home/marlon/Documentos/Evolucao Diferencial Binaria/testes1.c
+	<stdio.h>
+	<stdlib.h>
+	<inttypes.h>
+	"fitness.h"
+
+1396069766 source:/home/marlon/Documentos/Evolucao Diferencial Binaria/pseudocodigo.c
+
+1396177866 source:/home/marlon/Documentos/Evolucao Diferencial Binaria/AlgoritmoEDB.c
+	<inttypes.h>
+	<stdlib.h>
+	<time.h>
+
+1396176574 /home/marlon/Documentos/Evolucao Diferencial Binaria/fitness.h
+	<inttypes.h>
+
+1396172430 /home/marlon/Documentos/Evolucao Diferencial Binaria/otimizacoes.h
+
+1396172382 source:/home/marlon/Documentos/Evolucao Diferencial Binaria/otimizacoes.c
+
+1396170374 source:/home/marlon/Documentos/Evolucao Diferencial Binaria/progprinc.c
+
+1396174837 source:/home/marlon/Documentos/Evolucao Diferencial Binaria/anotacoes.c
+	"fitness.h"
+
