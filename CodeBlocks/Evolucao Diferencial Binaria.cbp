@@ -57,9 +57,6 @@
 		<Unit filename="pseudocodigo EDB.txt">
 			<Option target="Debug" />
 		</Unit>
-		<Unit filename="pseudocodigo.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="testes1.c">
 			<Option compilerVar="CC" />
 		</Unit>

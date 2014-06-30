@@ -6,8 +6,6 @@
 #include "include/medidor.h"
 #include "include/dadosIO.h"
 
-#define PENALIDADE 10 //em porcentagem
-
 
 void AplicarOtim(uint64_t numero, char strRetorno[2000]){
 /*  Verifica todos os bits em NUMERO. Se algum bit for 1, a otimização correspondente será aplicada.
@@ -57,8 +55,6 @@ void FitnessTxt(char* nomePrograma, uint64_t numero){
         //O arquivo binário não foi gerado pelo NUMERO atual (é da compilação anterior ou ainda não existe).
         //Portanto, será aplicada uma penalidade (% do tempo) ao tempo obtido.
 
-        tempoMicrosegs += tempoMicrosegs * (PENALIDADE / 100);
-
         //falta considerar o caso onde o binario não existe
         //pois o tempo de execução será MUITO menor que os outros, mesmo com a penalidade
     }
@@ -102,7 +98,6 @@ uint64_t Fitness(char* nomePrograma, uint64_t numero){
         //O arquivo binário não foi gerado pelo NUMERO atual (é da compilação anterior ou ainda não existe).
         //Portanto, será aplicada uma penalidade (% do tempo) ao tempo obtido.
 
-        tempoMicrosegs += tempoMicrosegs * (PENALIDADE / 100);
         //falta considerar o caso onde o binario não existe
         //pois o tempo de execução será MUITO menor que os outros, mesmo com a penalidade
     }

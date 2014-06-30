@@ -3,7 +3,7 @@
 #include "include/fitness.h"
 #include "include/otimizacoes.h"
 
-int main(){
+int mainaa(){
     iniciaListaOtimizacoes();
 
     Fitness("testes/testeForLongo.c", 0xffffffff);
