@@ -31,24 +31,31 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Aleatorio.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="AlgoritmoEDB.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="DadosIO.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="Fitness.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="Medidor.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="Otimizacoes.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="anotacoes.c">
-			<Option compilerVar="CC" />
-			<Option target="Debug" />
-		</Unit>
-		<Unit filename="fitness.h" />
-		<Unit filename="otimizacoes.h" />
+		<Unit filename="include/aleatorio.h" />
+		<Unit filename="include/dadosIO.h" />
+		<Unit filename="include/fitness.h" />
+		<Unit filename="include/medidor.h" />
+		<Unit filename="include/otimizacoes.h" />
 		<Unit filename="pseudocodigo.c">
 			<Option compilerVar="CC" />
-			<Option target="Debug" />
 		</Unit>
 		<Unit filename="testes1.c">
 			<Option compilerVar="CC" />

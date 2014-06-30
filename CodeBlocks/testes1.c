@@ -1,13 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <inttypes.h>
+//#include <stdio.h>
 
-#include "fitness.h"
+#include "include/fitness.h"
+#include "include/otimizacoes.h"
 
 int main(){
+    iniciaListaOtimizacoes();
 
-    Fitness(1999, "/testes/testeFibonacci.c");
-
+    Fitness("testes/testeForLongo.c", 0xffffffff);
 
     return 0;
 }

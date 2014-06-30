@@ -2,7 +2,10 @@
     Estas informações foram encontradas em: http://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html
     Se necessário, basta alterar estes valores ou adicionar novos. **/
 
-const char *otimizacoes[256]; //um vetor com 256 flags de otimizações (do GCC)
+#include <stdio.h>
+#define MAX_OTIMIZACOES 128
+
+const char *otimizacoes[MAX_OTIMIZACOES]; //um vetor com 256 flags de otimizações (do GCC)
 
 void iniciaListaOtimizacoes(){
     //Ativadas pela opção -o1
@@ -51,43 +54,52 @@ void iniciaListaOtimizacoes(){
     otimizacoes[40] = " -fcse-skip-blocks";
     otimizacoes[41] = " -fdelete-null-pointer-checks";
     otimizacoes[42] = " -fdevirtualize";
-    otimizacoes[43] = " -fdevirtualize-speculatively";
-    otimizacoes[44] = " -fexpensive-optimizations";
-    otimizacoes[45] = " -fgcse"; //warning on programs that use computed gotos (??)
-    otimizacoes[46] = " -fgcse-lm";
-    otimizacoes[47] = " -fhoist-adjacent-loads";
-    otimizacoes[48] = " -finline-small-functions";
-    otimizacoes[49] = " -findirect-inlining";
-    otimizacoes[50] = " -fipa-sra";
-    otimizacoes[51] = " -fisolate-erroneous-paths-dereference";
-    otimizacoes[52] = " -foptimize-sibling-calls";
-    otimizacoes[53] = " -fpartial-inlining";
-    otimizacoes[54] = " -fpeephole2";
-    otimizacoes[55] = " -freorder-blocks";
-    otimizacoes[56] = " -freorder-functions";
-    otimizacoes[57] = " -frerun-cse-after-loop";
-    otimizacoes[58] = " -fsched-interblock";
-    otimizacoes[59] = " -fsched-spec";
-    otimizacoes[60] = " -fschedule-insns";
-    otimizacoes[61] = " -fschedule-insns2";
-    otimizacoes[62] = " -fstrict-aliasing";
-    otimizacoes[63] = " -fstrict-overflow";
-    otimizacoes[64] = " -ftree-switch-conversion";
-    otimizacoes[64] = " -ftree-tail-merge";
-    otimizacoes[66] = " -ftree-pre";
-    otimizacoes[67] = " -ftree-vrp";
+    otimizacoes[43] = " -fexpensive-optimizations";
+    otimizacoes[44] = " -fgcse"; //warning on programs that use computed gotos (??)
+    otimizacoes[45] = " -fgcse-lm";
+    otimizacoes[46] = " -fhoist-adjacent-loads";
+    otimizacoes[47] = " -finline-small-functions";
+    otimizacoes[48] = " -findirect-inlining";
+    otimizacoes[49] = " -fipa-sra";
+    otimizacoes[50] = " -foptimize-sibling-calls";
+    otimizacoes[51] = " -fpartial-inlining";
+    otimizacoes[52] = " -fpeephole2";
+    otimizacoes[53] = " -freorder-blocks";
+    otimizacoes[54] = " -freorder-functions";
+    otimizacoes[55] = " -frerun-cse-after-loop";
+    otimizacoes[56] = " -fsched-interblock";
+    otimizacoes[57] = " -fsched-spec";
+    otimizacoes[58] = " -fschedule-insns";
+    otimizacoes[59] = " -fschedule-insns2";
+    otimizacoes[60] = " -fstrict-aliasing";
+    otimizacoes[61] = " -fstrict-overflow";
+    otimizacoes[62] = " -ftree-switch-conversion";
+    otimizacoes[63] = " -ftree-tail-merge";
+    otimizacoes[64] = " -ftree-pre";
+    otimizacoes[65] = " -ftree-vrp";
 
     //Ativadas por -o3
-    otimizacoes[68] = " -finline-functions";
-    otimizacoes[69] = " -funswitch-loops";
-    otimizacoes[70] = " -fpredictive-commoning";
-    otimizacoes[71] = " -fgcse-after-reload";
-    otimizacoes[72] = " -ftree-loop-vectorize";
-    otimizacoes[73] = " -ftree-slp-vectorize";
-    otimizacoes[74] = " -fvect-cost-model";
-    otimizacoes[75] = " -ftree-partial-pre";
-    otimizacoes[76] = " -fipa-cp-clone";
+    otimizacoes[66] = " -finline-functions";
+    otimizacoes[67] = " -funswitch-loops";
+    otimizacoes[68] = " -fpredictive-commoning";
+    otimizacoes[69] = " -fgcse-after-reload";
+    otimizacoes[70] = " -ftree-loop-vectorize";
+
+    otimizacoes[71] = " -fvect-cost-model";
+    otimizacoes[72] = " -ftree-partial-pre";
+    otimizacoes[73] = " -fipa-cp-clone";
 
     //Outras...
+    for (int i=74; i<MAX_OTIMIZACOES; i++){
+        otimizacoes[i] = ""; //evitando NULLs
+    }
 
+    return;
+}
+
+void MostraOtimizacoes(){
+    printf("Otimizações disponíveis:\n");
+    for (int num = 0; num < MAX_OTIMIZACOES; num++){
+        printf("%d -- %s\n", num, otimizacoes[num]);
+    }
 }

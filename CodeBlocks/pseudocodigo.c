@@ -8,7 +8,7 @@
 
     ///PARA i=1 até N {
 
-        ///escolha aleatoriamente o indice de um individuo: s = rndint(1, N) com s diferente de i
+        ///escolha aleatoriamente o indice de um individuo (que não seja o atual): s = rndint(1, N) com s diferente de i
 
         ///escolha aleatoriamente o indice de uma variavel (bit): j[rand] = rndint(1,D)
 
