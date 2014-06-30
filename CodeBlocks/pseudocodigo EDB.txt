@@ -1,0 +1,50 @@
+Definições:
+ - Perturbação: Quando os genes do indivíduo são alterados (por crossover ou mutação)
+ - Crossover: Combinação de genes de 2 indivíduos (não há autofecundação)
+ - Mutação: O indivíduo sofre inversão no valor de um ou mais genes
+ - Fitness: Valor baseado na performance de um indivíduo em relação aos outros
+
+Parâmetros recebidos:
+D - dimensão de um indivíduo (quantas variaveis ele possui, genes)
+N - numero de individuos da população
+PM - parâmetro de mutação
+PR - parâmetro de perturbação
+
+Código:
+
+EDB(){
+
+  Gerar população inicial (N individuos aleatorios);
+  
+  Calcular fitness de cada indivíduo da população;
+  
+  while (parada == false){
+    
+    for (i=1 ate N){
+      
+      Escolher o indice de um indivíduo aleatorio (que nao seja o atual): s = rndint(1,N) com (s != i);
+      
+      Escolher o indice de um gene: j_rand = rndint(1, D);
+      
+      Criar um indivíduo teste y, que recebe o indivíduo atual: y = x[i];
+      
+      for (j=1 ate D){
+      
+      
+      }
+      
+      Calcular fitness de y;
+      
+      if (fitness(y) > fitness(x[i])){
+	//Se o fitness do y for MELHOR que o fitness do individuo atual, substitui o atual pelo individuo y 
+	x[i] recebe y;
+      }
+    
+    }
+    
+    Encontrar o melhor indivíduo da população atual; (e colocar onde?)
+  
+  }
+  
+  Apresentar resultados;
+}

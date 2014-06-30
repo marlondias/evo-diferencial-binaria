@@ -54,6 +54,9 @@
 		<Unit filename="include/fitness.h" />
 		<Unit filename="include/medidor.h" />
 		<Unit filename="include/otimizacoes.h" />
+		<Unit filename="pseudocodigo EDB.txt">
+			<Option target="Debug" />
+		</Unit>
 		<Unit filename="pseudocodigo.c">
 			<Option compilerVar="CC" />
 		</Unit>

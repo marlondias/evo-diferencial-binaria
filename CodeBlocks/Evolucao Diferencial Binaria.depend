@@ -62,11 +62,9 @@
 	<inttypes.h>
 	<stdlib.h>
 
-1404090997 source:/mnt/42DC9E24DC9E1271/Arquivos/Projeto Anderson/Git - Evolução Diferencial Binaria/evo-diferencial-binaria/CodeBlocks/testes1.c
-	<stdio.h>
-	"fitness.h"
-	"medidor.h"
-	"otimizacoes.h"
+1404128077 source:/mnt/42DC9E24DC9E1271/Arquivos/Projeto Anderson/Git - Evolução Diferencial Binaria/evo-diferencial-binaria/CodeBlocks/testes1.c
+	"include/fitness.h"
+	"include/otimizacoes.h"
 
 1404079968 /mnt/42DC9E24DC9E1271/Arquivos/Projeto Anderson/Git - Evolução Diferencial Binaria/evo-diferencial-binaria/CodeBlocks/medidor.h
 
@@ -97,4 +95,7 @@
 1404079968 /mnt/42DC9E24DC9E1271/Arquivos/Projeto Anderson/Git - Evolução Diferencial Binaria/evo-diferencial-binaria/CodeBlocks/include/medidor.h
 
 1404122946 /mnt/42DC9E24DC9E1271/Arquivos/Projeto Anderson/Git - Evolução Diferencial Binaria/evo-diferencial-binaria/CodeBlocks/include/dadosIO.h
+
+1404127491 /mnt/42DC9E24DC9E1271/Arquivos/Projeto Anderson/Git - Evolução Diferencial Binaria/evo-diferencial-binaria/CodeBlocks/include/fitness.h
+	<inttypes.h>
 

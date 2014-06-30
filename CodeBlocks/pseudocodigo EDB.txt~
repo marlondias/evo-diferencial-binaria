@@ -1,0 +1,17 @@
+Definições:
+ - Perturbação: Quando os genes do indivíduo são alterados (por crossover ou mutação)
+ - Crossover: Combinação de genes de 2 indivíduos (não há autofecundação)
+ - Mutação: O indivíduo sofre inversão no valor de um ou mais genes
+ - Fitness: Valor baseado na performance de um indivíduo em relação aos outros
+
+Parâmetros recebidos:
+D - dimensão de um indivíduo (quantas variaveis ele possui, genes)
+N - numero de individuos da população
+PM - parâmetro de mutação
+PR - parâmetro de perturbação
+
+
+Perturbação:
+
+
+Gerar população inicial (criar N individuos aleatorios)
