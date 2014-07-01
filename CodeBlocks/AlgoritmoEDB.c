@@ -4,14 +4,15 @@
 #include "include/aleatorio.h"
 #include "include/fitness.h"
 #include "include/otimizacoes.h"
+#include "include/dadosIO.h"
 
 //Parametros:
 #define TAM_DNA 64 //dimensão (número de variaveis dentro de cada indivíduo, genes)
-#define TAM_POPULACAO 20 //número de indivíduos na população
-#define TAXA_MUTACAO 0.5 //taxa de mutação
-#define TAXA_PERTURBACAO 0.5 //taxa de perturbação
+#define TAM_POPULACAO 5 //número de indivíduos na população
+#define TAXA_MUTACAO 0.4 //taxa de mutação
+#define TAXA_PERTURBACAO 0.7 //taxa de perturbação
 
-#define MAX_PASSAGENS 5 //quantas vezes o loop ocorre
+#define MAX_GERACOES 7 //quantas vezes o loop ocorre
 
 
 typedef struct {
@@ -20,22 +21,17 @@ typedef struct {
 } individuo_t;
 
 
-int verificarValidadeDoCodigo(char* codigoAlvo){
-    //verificar se existe
-    //verificar se pode ser compilado normalmente pelo gcc
-    //retornar 0 ou 1
-    return 1;
-}
-
-
 void gerarPopulacaoAleatoria(individuo_t individuos[], int maxIndividuos){
+    printf("Criando população inicial...\n");
     for (int i=0; i<maxIndividuos; i++){
         individuos[i].dna = randomUnsignedInt64(); //coloca DNAs aleatorios nos individuos
+        individuos[i].tempoExecucao = 0;
     }
 }
 
 
 void calcularTempoTodos(individuo_t individuos[], int maxIndividuos, char* codigoAlvo){
+    printf("Atribuindo tempo de execução a cada indivíduo...\n");
     for (int i=0; i<maxIndividuos; i++){
         individuos[i].tempoExecucao = Fitness(codigoAlvo, individuos[i].dna); //manda o código e o DNA, recebe o tempo de execução
     }
@@ -45,7 +41,7 @@ void calcularTempoTodos(individuo_t individuos[], int maxIndividuos, char* codig
 individuo_t melhorIndividuo(individuo_t individuos[], int maxIndividuos){
     //Retorna o individuo com o menor tempo de execução
     int indiceMaisRapido = 0;
-    for (int i=0; i<(maxIndividuos-1); i++){
+    for (int i=0; i<maxIndividuos; i++){
         if (individuos[i].tempoExecucao < individuos[indiceMaisRapido].tempoExecucao){
             indiceMaisRapido = i;
         }
@@ -56,26 +52,45 @@ individuo_t melhorIndividuo(individuo_t individuos[], int maxIndividuos){
 
 uint64_t mutacao(uint64_t dna, int geneAfetado){
     //Encontra o bit desejado dentro do valor DNA e inverte ele
+    //printf("Mutação aplicada no gene %d!\n", geneAfetado);
     return (dna ^ (1LL << geneAfetado)); //faz uma XOR no bit desejado
 }
 
 
 uint64_t crossover(uint64_t dna_A, uint64_t dna_B, int geneAfetado){
+    //printf("Crossover aplicado no gene %d!\n", geneAfetado);
     uint64_t bitMask = (1LL << geneAfetado); //Deixa o bit desejado 1 e o restante 0
     return (dna_A & ~bitMask) | (dna_B & bitMask); //Substitui o bit em A pelo bit em B
 }
 
 
-void EDB(char* codigoAlvo){
-    int passagens = 0;
+void mostrarPopulacao(individuo_t individuos[], int maxIndividuos){
+    //printf("Individuos:\n");
+    for (int i=0; i<maxIndividuos; i++){
+        printf("#: %"PRIx64" (%"PRIu64" us)\n", individuos[i].dna, individuos[i].tempoExecucao);
+    }
+    printf("\n");
+}
 
+
+
+void EDB(char* codigoAlvo){
+
+    individuo_t melhores[MAX_GERACOES]; //cada elemento representa o melhor individuo de alguma geração
     individuo_t populacao[TAM_POPULACAO]; //abre espaço para N individuos
+
     gerarPopulacaoAleatoria(populacao, TAM_POPULACAO); //Gerar população inicial
     calcularTempoTodos(populacao, TAM_POPULACAO, codigoAlvo); //Fitness
-    printf("Aqui2\n");
 
-    //int parar = 0;
-    while (passagens < MAX_PASSAGENS){
+    int geracao = 0; //conta quantas gerações se passaram (loops)
+    printf("\nIniciando com a população:\n");
+    mostrarPopulacao(populacao, TAM_POPULACAO);
+    melhores[0] = melhorIndividuo(populacao, TAM_POPULACAO); //guarda o melhor da população aleatória
+
+    int parar = 0; //parada de emergencia
+    while ((geracao < MAX_GERACOES) && (!parar)){
+        geracao++;
+
         for (int indexPop=0; indexPop<TAM_POPULACAO; indexPop++){
             int indexParceiro = randomInt_RangeExceto(0, TAM_POPULACAO, indexPop); //Indice de um indivíduo aleatorio, que nao seja o atual
             int indexGeneAleatorio = randomInt_Range(0, TAM_DNA); //Indice aleatorio de um gene
@@ -107,23 +122,30 @@ void EDB(char* codigoAlvo){
             }
         }
 
-        individuo_t melhor = melhorIndividuo(populacao, TAM_POPULACAO); //Encontra o melhor indivíduo da população atual
-        printf("O melhor foi: %"PRIu64" com %"PRIu64" microsegundos\n", melhor.dna, melhor.tempoExecucao);
+        melhores[geracao] = melhorIndividuo(populacao, TAM_POPULACAO); //Encontra o melhor indivíduo da população atual
 
-        passagens++; //controle
+        printf("População %d:\n", geracao);
+        mostrarPopulacao(populacao, TAM_POPULACAO);
+        printf("Melhor indivíduo: %"PRIx64"\n\n", melhores[geracao].dna);
+
     }
 
-    //Apresentar resultados;
+    printf("Os melhores foram:\n");
+    mostrarPopulacao(melhores, MAX_GERACOES); //Apresentar resultados
 }
 
 
 int main(){
+    char codigoFonte[] = "testes/testeForLongo.c";
+
+    if (verificarValidadeCodigoFonte(codigoFonte) == 0){
+        printf("Código fonte inválido!\n");
+        return 1;
+    }
+
     initSeed();
     iniciaListaOtimizacoes();
 
-    char arquivo[30] = "testes/teste99.c";
-
-    EDB(arquivo);
-
+    EDB(codigoFonte);
     return 0;
 }

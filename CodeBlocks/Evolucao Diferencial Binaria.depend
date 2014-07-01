@@ -102,3 +102,52 @@
 1404127491 /mnt/42DC9E24DC9E1271/Arquivos/Projeto Anderson/Git - Evolução Diferencial Binaria/evo-diferencial-binaria/CodeBlocks/include/fitness.h
 	<inttypes.h>
 
+1404217103 source:/home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/Aleatorio.c
+	<stdlib.h>
+	<inttypes.h>
+	<time.h>
+
+1404238622 source:/home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/AlgoritmoEDB.c
+	<inttypes.h>
+	<stdio.h>
+	"include/aleatorio.h"
+	"include/fitness.h"
+	"include/otimizacoes.h"
+	"include/dadosIO.h"
+
+1404166141 /home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/include/aleatorio.h
+
+1404166141 /home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/include/fitness.h
+	<inttypes.h>
+
+1404166141 /home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/include/otimizacoes.h
+
+1404237360 source:/home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/DadosIO.c
+	<stdio.h>
+	<inttypes.h>
+	<stdlib.h>
+	<string.h>
+
+1404238712 source:/home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/Medidor.c
+	<sys/time.h>
+	<inttypes.h>
+	<stdlib.h>
+
+1404220465 source:/home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/Otimizacoes.c
+	<stdio.h>
+
+1404166141 source:/home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/testes1.c
+	"include/fitness.h"
+	"include/otimizacoes.h"
+
+1404227730 source:/home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/Fitness.c
+	<stdlib.h>
+	<inttypes.h>
+	<string.h>
+	"include/otimizacoes.h"
+	"include/medidor.h"
+
+1404166141 /home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/include/medidor.h
+
+1404237152 /home/marlon/Documentos/Projeto_Anderson/evo-diferencial-binaria/CodeBlocks/include/dadosIO.h
+

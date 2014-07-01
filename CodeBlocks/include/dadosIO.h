@@ -5,4 +5,6 @@ void registrarValor(char* arquivoTxt, uint64_t numeroUsado, uint64_t tempoMicros
 
 void registrarFinal(char* arquivoTxt);
 
+int verificarValidadeCodigoFonte(char* nomeArquivo);
+
 #endif // DADOSIO_H_INCLUDED

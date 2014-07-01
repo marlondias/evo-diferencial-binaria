@@ -4,7 +4,7 @@
 #include <inttypes.h> //int64_t
 #include <stdlib.h> //NULL
 
-#define EXECUCOES 10 //quantas execuções devem ser feitas
+#define EXECUCOES 8 //quantas execuções devem ser feitas
 
 uint64_t tempoMedioExecucao(char* command){
     uint64_t tempoTotal = 0LL; //soma dos tempos de execução

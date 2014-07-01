@@ -11,7 +11,7 @@ void initSeed(){
 uint64_t randomUnsignedInt64(){
     uint64_t result = rand(); //recebe um valor de 32 bits
     result = result << 32; //abre espaço para outros 32 bits
-    result += rand(); //preenche a outra metade do valor
+    result |= rand(); //preenche a outra metade do valor
     return result;
 }
 

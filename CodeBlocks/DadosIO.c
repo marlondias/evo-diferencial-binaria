@@ -1,5 +1,8 @@
 #include <stdio.h> //file IO e prints
 #include <inttypes.h>
+#include <stdlib.h>
+#include <string.h>
+
 
 void registrarValor(char* arquivoTxt, uint64_t numeroUsado, uint64_t tempoMicrosegs){
     //Grava o NUMERO usado e o tempo de execução do código em um arquivo de texto
@@ -42,12 +45,22 @@ void registrarFinal(char* arquivoTxt){
 }
 
 
-int obterValor(char* arquivoTxt, int linhaNoTxt, uint64_t* numeroUsado, uint64_t* tempoMicrosegs){
-    //Extrai o NUMERO e o TEMPO registrados no arquivo, na linha desejada
+int verificarValidadeCodigoFonte(char* nomeArquivo){
+    const char* prefixo = "gcc -o testes/binVerificacao -std=c99 ";
 
-    //TBD
-    //verificar se existe algo na linha (se não, retorna 0)
-    //extrair o primeiro valor e colocar em NUMEROUSADO
-    //extrair o segundo valor e colocar em TEMPOMICROSEGS
-    return 1; //em caso de sucesso
+    char* comando = malloc(strlen(prefixo) + strlen(nomeArquivo) + 1);
+    if (comando != NULL){
+        strcpy(comando, prefixo);
+        strcat(comando, nomeArquivo);
+    }
+    else {
+        return 0; //não tem memoria disponivel, melhor parar
+    }
+
+    int saida = system(comando);
+    if (saida != 0){
+        return 0; //não foi possivel compilar
+    }
+
+    return 1;
 }
